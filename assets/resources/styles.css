@@ -145,7 +145,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-padding-top-64{padding-top:64px!important}.w3-padding-top-48{padding-top:48px!important}
 .w3-padding-top-32{padding-top:32px!important}.w3-padding-top-24{padding-top:24px!important}
 .w3-left{float:left!important}.w3-right{float:right!important}
-.w3-button:hover{color:#000!important;background-color:#ccc!important}
+.w3-button:hover{color:#000!important;background-color:#ffa31a!important}
 .w3-transparent,.w3-hover-none:hover{background-color:transparent!important}
 .w3-hover-none:hover{box-shadow:none!important}
 /* Colors */
@@ -191,7 +191,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .w3-text-indigo,.w3-hover-text-indigo:hover{color:#3f51b5!important}
 .w3-text-khaki,.w3-hover-text-khaki:hover{color:#b4aa50!important}
 .w3-text-lime,.w3-hover-text-lime:hover{color:#cddc39!important}
-.w3-text-orange,.w3-hover-text-orange:hover{color:#ff9800!important}
+.w3-text-orange,.w3-hover-text-orange:hover{color:#ffa31a!important}
 .w3-text-deep-orange,.w3-hover-text-deep-orange:hover{color:#ff5722!important}
 .w3-text-pink,.w3-hover-text-pink:hover{color:#e91e63!important}
 .w3-text-purple,.w3-hover-text-purple:hover{color:#9c27b0!important}
@@ -240,3 +240,143 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
     border: 3px solid green;
     padding: 10px;
   }
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+divcls {
+    font: normal 16px/1.5 "Titillium Web", sans-serif;
+    background: linear-gradient(54deg, #ffa31a, #000);
+    color: #ffa31a;
+    overflow-x: hidden;
+    padding-bottom: 50px;
+    direction: ltr !important;
+}
+
+.timeline ul li {
+    list-style-type: none;
+    position: relative;
+    width: 6px;
+    margin: 0 auto;
+    padding-top: 50px;
+    background: #ffa31a;
+}
+
+.timeline ul li::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    z-index: 2;
+    background: #ffa31a;
+}
+
+.timeline ul li div {
+    position: relative;
+    bottom: 0;
+    width: 400px;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 4px 13px 30px 1px rgba(41, 41, 41, 0.2);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.timeline ul li div time {
+    position: absolute;
+    background: #ffa31a;
+    width: 80px;
+    height: 30px;
+    top: -15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 2px;
+}
+
+.timeline ul li div div {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timeline ul li div div p {
+    text-align: center;
+}
+
+.timeline ul li div .discovery {
+    margin-right: 10px;
+}
+
+.timeline ul li:nth-of-type(odd) > div {
+    left: 45px;
+}
+
+.timeline ul li:nth-of-type(even) > div {
+    left: -439px;
+}
+
+.timeline ul li div {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.timeline ul li:nth-of-type(odd) div {
+    transform: translate3d(100px, -10px, 0) rotate(10deg);
+}
+
+.timeline ul li:nth-of-type(even) div {
+    transform: translate3d(-100px, -10px, 0) rotate(10deg);
+}
+
+.timeline ul li.in-view div {
+    transform: none;
+    visibility: visible;
+    opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+    .timeline ul li div {
+        width: 250px;
+        flex-direction: column;
+    }
+
+    .timeline ul li div div {
+        width: 80%;
+        margin: 10px;
+    }
+
+    .timeline ul li:nth-of-type(even) > div {
+        left: -289px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background: #ffa31a;
+    }
+
+    .timeline ul li {
+        margin-left: 20px;
+    }
+
+    .timeline ul li div {
+        width: calc(100vw - 91px);
+    }
+
+    .timeline ul li:nth-of-type(even) > div {
+        left: 45px;
+    }
+}
